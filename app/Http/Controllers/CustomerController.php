@@ -25,6 +25,12 @@ class CustomerController extends Controller
     {
         return view('customers.create');
     }
+
+
+    public function dashboard()
+    {
+        return view('dashboard');
+    }
     /**
      * Create a new Paystack customer
      *

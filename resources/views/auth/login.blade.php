@@ -2,6 +2,7 @@
 @section('title', 'Login - Wallet System')
 
 @section('content')
+
 <div class="min-h-screen flex">
     <!-- Left Side - Branding -->
     <div class="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 relative overflow-hidden">
@@ -39,6 +40,8 @@
                     <i class="fas fa-wallet text-2xl text-white"></i>
                 </div>
             </div>
+
+            @include('feedback')
 
             <!-- Header -->
             <div class="text-center mb-8">

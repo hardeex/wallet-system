@@ -9,11 +9,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [CustomerController::class, 'index'])->name('welcome');
 
 
+// authenticated and verified users routes
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [CustomerController::class, 'dashboard'])->name('dashboard');
+    Route::get('/create-customer', [CustomerController::class, 'showCreateForm'])->name('create-wallet');
+    Route::post('/create-customer', [CustomerController::class, 'createCustomer'])->name('create-customer');
+ });
+   
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+// authenticated but not verified routes
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -21,10 +30,11 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::middleware('auth')->group(function () {
-    Route::get('/create-customer', [CustomerController::class, 'showCreateForm'])->name('create-wallet');
-    Route::post('/create-customer', [CustomerController::class, 'createCustomer'])->name('create-customer');
-    // Add routes for wallet management, e.g., /wallet, /wallet/fund
-});
+// wallet operation for authenticated users
+// Route::middleware('auth')->group(function () {
+//     Route::get('/create-customer', [CustomerController::class, 'showCreateForm'])->name('create-wallet');
+//     Route::post('/create-customer', [CustomerController::class, 'createCustomer'])->name('create-customer');
+   
+// });
 
 require __DIR__.'/auth.php';

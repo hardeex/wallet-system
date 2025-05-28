@@ -2,6 +2,7 @@
 @section('title', 'Register - Wallet System')
 
 @section('content')
+@include('feedback')
 <div class="min-h-screen flex">
     <!-- Left Side - Branding -->
     <div class="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 relative overflow-hidden">

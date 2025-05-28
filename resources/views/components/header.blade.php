@@ -30,7 +30,7 @@
                 }
             }
         </style>
-
+{{-- 
         <div class="flex items-center space-x-4">
             <!-- Search Input -->
           
@@ -49,7 +49,7 @@
                 </form>
             </div>
 
-        </div>
+        </div> --}}
 
         <nav class=" shadow-sm relative" x-data="{
             mobileMenuOpen: false,
@@ -88,17 +88,31 @@
                             <a href="{{route('create-wallet')}}"
                             class="text-blue-200 hover:text-indigo-600 transition-colors duration-200">Create Wallet</a>
 
-                            @auth
-                                 <a href="#"
-                            class="text-blue-500 hover:text-indigo-600 transition-colors duration-200">Logout</a>
-                             <a href="#"
-                            class="text-blue-500 hover:text-indigo-600 transition-colors duration-200">Dashboard</a>
+                         @auth
+    <!-- Dashboard Link -->
+    <a href="{{ route('dashboard') }}" 
+       class="text-blue-500 hover:text-indigo-600 transition-colors duration-200">
+        Dashboard
+    </a>
 
-                            @endauth
+    <!-- Logout Form (Styled as Link) -->
+    <form method="POST" action="{{ route('logout') }}" class="inline">
+        @csrf
+        <button type="submit"
+            class="text-blue-500 hover:text-indigo-600 transition-colors duration-200 bg-transparent border-none p-0 m-0 cursor-pointer">
+            Log Out
+        </button>
+    </form>
+@endauth
+
 
                             @guest
                                  <a href="#"
                             class="text-blue-500 hover:text-indigo-600 transition-colors duration-200">Register</a>
+
+                             <a href="#"
+                            class="text-blue-500 hover:text-indigo-200 transition-colors duration-200">Login</a>
+                            
 
                             @endguest
                            
