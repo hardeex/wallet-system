@@ -83,24 +83,25 @@
 
                     <!-- Desktop Menu Items -->
                     <div class="hidden md:flex items-center space-x-4">
-                        <a href="#"
-                            class="text-white hover:text-indigo-600 transition-colors duration-200">Dashboard</a>
-                        {{-- <a href="#"
-                            class="text-gray-700 hover:text-indigo-600 transition-colors duration-200">Topics</a> --}}
-                        <a href="#"
-                            class="text-white hover:text-indigo-600 transition-colors duration-200">Transaction</a>
-
-                        <a href="#"
-                            class="text-white hover:text-indigo-600 transition-colors duration-200">Cards </a>
-                        <a href="#"
-                            class="text-white hover:text-indigo-600 transition-colors duration-200">Settings</a>
+                       
 
                             <a href="{{route('create-wallet')}}"
                             class="text-blue-200 hover:text-indigo-600 transition-colors duration-200">Create Wallet</a>
 
-                            <a href="#"
-                            class="text-blue-500 hover:text-indigo-600 transition-colors duration-200">Login</a>
+                            @auth
+                                 <a href="#"
+                            class="text-blue-500 hover:text-indigo-600 transition-colors duration-200">Logout</a>
+                             <a href="#"
+                            class="text-blue-500 hover:text-indigo-600 transition-colors duration-200">Dashboard</a>
 
+                            @endauth
+
+                            @guest
+                                 <a href="#"
+                            class="text-blue-500 hover:text-indigo-600 transition-colors duration-200">Register</a>
+
+                            @endguest
+                           
                        
                     </div>
                 </div>
@@ -115,22 +116,12 @@
                 x-transition:leave-end="opacity-0 -translate-y-1"
                 class="absolute right-0 mt-2 w-screen bg-white shadow-lg z-50" id="mobile-menu">
                 <div class="px-4 pt-2 pb-3 space-y-1">
-                    <a href="#"
-                        class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md">Dashboard</a>
-                    <a href="#"
-                        class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md">Transactions</a>
-                    <a href="#"
-                        class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md">Cards</a>
-                    <div class="border-t border-gray-200 mt-4 pt-4">
-                        <a href="#"
-                        class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md">Settings</a>
-                    <div class="border-t border-gray-200 mt-4 pt-4">
-                        <a href="#"
-                            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md">Login</a>
+                    
                         <a href="#"
                             class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md">Register</a>
                         <a href="#"
-                            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md">Profile</a>
+                            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md">Login</a>
+                       
                     </div>
                     
                 </div>
